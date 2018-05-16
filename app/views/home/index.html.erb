@@ -12,7 +12,7 @@
         <li><a href="/users/nazar"><i class="fa fa-user"></i><span>Profile</span></a></li>
         <li><a href="/tweets"><i class="fa fa-comment"></i><span>All tweets</span></a></li>
         <li><a href="/users/nazar/edit"><i class="fa fa-cog"></i><span>Setting</span></a></li>
-        <li><a rel="nofollow" data-method="delete" href="/signout"><i class="fa fa-sign-out"></i><span>Sign out</span></a></li>
+        <li><%= link_to 'Sign out', log_out_path, method: :delete, class: 'fa fa-sign-out' %></li>
       </ul>
     </div>
   </div>

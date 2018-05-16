@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @current_user.first_name %> |
+  <%= @current_user.last_name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @current_user.email %>
+</p>
+
+<%= link_to 'Return home', root_path %>
