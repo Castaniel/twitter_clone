@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'tweets/new'
+
+  get 'tweets/create'
+
+  get 'tweets/update'
+
+  get 'tweets/destroy'
+
   get 'sessions/new'
   get 'sessions/create'
   get 'sessions/destroy'
@@ -8,5 +16,6 @@ Rails.application.routes.draw do
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :tweets
   root 'home#index'
 end

@@ -1,0 +1,7 @@
+<h1>Sign up</h1>
+<%= form_for @tweet do |form| %>
+	<%= form.label :text %>
+	<%= form.text_field :text, class: 'form-control' %>
+
+	<%= form.submit class: 'btn btn-success' %>
+<% end %>

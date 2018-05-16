@@ -1,14 +1,13 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>User:</strong>
-  <%= @current_user.first_name %> |
-  <%= @current_user.last_name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @current_user.email %>
-</p>
-
-<%= link_to 'Return home', root_path %>
+<!--% provide(:title, 'All users') %-->
+<div class="container">
+  <% @users.each do |user| %>
+    <p>
+      <strong>User:</strong>
+      <%= link_to "#{user.first_name} #{user.last_name}", current_user %>
+    </p>
+    <p>
+      <strong>Email:</strong>
+      <%= user.email %>
+    </p> 
+  <% end %>
+</div>
