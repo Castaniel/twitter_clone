@@ -5,8 +5,6 @@ Rails.application.routes.draw do
 
   get 'tweets/update'
 
-  get 'tweets/destroy'
-
   get 'sessions/new'
   get 'sessions/create'
   get 'sessions/destroy'

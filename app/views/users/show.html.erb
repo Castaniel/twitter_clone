@@ -8,5 +8,14 @@
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
+<div class="col-md-8">
+  <% if @user.tweets.any? %>
+    <h3>Tweets (<%= @user.tweets.count %>)</h3>
+    <ol class="tweets">
+      <%= render 'tweets/tweet' %>
+    </ol>
+    <!--%= will_paginate @microposts %-->
+  <% end %>
+</div>
 
 <%= link_to 'Edit', edit_user_path(@user) %>

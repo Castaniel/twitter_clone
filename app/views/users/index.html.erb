@@ -3,7 +3,7 @@
   <% @users.each do |user| %>
     <p>
       <strong>User:</strong>
-      <%= link_to "#{user.first_name} #{user.last_name}", current_user %>
+      <%= link_to "#{user.first_name} #{user.last_name}", user %>
     </p>
     <p>
       <strong>Email:</strong>

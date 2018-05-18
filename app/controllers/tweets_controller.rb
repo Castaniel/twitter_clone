@@ -13,13 +13,17 @@ class TweetsController < ApplicationController
   def create
     @tweet = current_user.tweets.build(tweet_params)
     if @tweet.save
-      redirect_to tweets_path
+      redirect_to root_path
     else
       render :new
     end
   end
 
   def destroy
+    @tweet = Tweet.find(params[:id])
+    @tweet.destroy
+    flash[:success] = "Micropost deleted"
+    redirect_to root_path
   end
   
   private

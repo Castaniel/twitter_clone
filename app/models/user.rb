@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_secure_password
   has_many :tweets, dependent: :destroy
   before_save { email.downcase! }
+  mount_uploader :avatar, AvatarUploader
   
   validates :password, presence: true, length: {minimum: 6 }, allow_nil: true
   validates_confirmation_of :password

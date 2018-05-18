@@ -3,9 +3,7 @@
     <aside class="col-md-4">
       <section>
         <div class="profile clearfix">
-          <a href="/users/nazar">
-            <img alt="Nazar Taran" class="gravatar" src="https://secure.gravatar.com/avatar/307a99b1eff78a2ca24d7c4097712f75?s=52">
-          </a>
+          <%= image_tag(current_user.avatar.url, alt: 'Avatar') if current_user.avatar? %>
           <div>
             <%= link_to "#{current_user.first_name} #{current_user.last_name}", current_user, class: 'btn' %>
           </div>
@@ -19,7 +17,6 @@
                 <th>Followings</th>
                 <th>Followers</th>
               </tr>
-              <tr>
                 <td><%= link_to current_user.tweets.length, tweets_path %></td>
                 <td><a href="/users/nazar/following">0</a></td>
                 <td><a href="/users/nazar/followers">0</a></td>
@@ -27,100 +24,11 @@
             </tbody>
           </table>
         </div>
-        <div class="tweet-box">
-          <form class="new_tweet" id="new_tweet" action="" accept-charset="UTF-8" method="post">
-            <div class="field">
-              <textarea placeholder="Compose new Tweet..." name="tweet[content]" id="tweet_content"></textarea>
-            </div>
-            <input type="submit" name="commit" value="Post" class="btn btn-large btn-primary" data-disable-with="Post">
-          </form>
+        <div class="container">
+          <%= render 'tweets/tweet_form' %>
+          <%= render 'tweets/tweet' %>
         </div>
       </section>
     </aside>
-    
-  
-    <div class="col-md-8">
-      <div class="timeline">
-        <h2 class="title">Tweets</h2>
-        <ol class="tweets">
-          <li class="tweet clearfix" id="5">
-            <a href="/users/nazar"><img alt="Nazar Taran" class="gravatar" src="https://secure.gravatar.com/avatar/307a99b1eff78a2ca24d7c4097712f75?s=50"></a>
-            <div class="content">
-              <div class="user">
-                <a href="/users/nazar">Nazar Taran</a>
-              </div>
-              <div class="tweet-content">My fifth tweet!</div>
-              <div class="tweet-footer">
-                <posted>less than a minute ago.</posted>
-                <div class="tweet-actions">
-                  <a data-confirm="You sure?" title="My fifth tweet!" rel="nofollow" data-method="delete" href="/tweets/5">delete</a>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="tweet clearfix" id="4">
-            <a href="/users/nazar"><img alt="Nazar Taran" class="gravatar" src="https://secure.gravatar.com/avatar/307a99b1eff78a2ca24d7c4097712f75?s=50"></a>
-            <div class="content">
-              <div class="user">
-                <a href="/users/nazar">Nazar Taran</a>
-              </div>
-              <div class="tweet-content">My fourth tweet!</div>
-              <div class="tweet-footer">
-                <posted>less than a minute ago.</posted>
-                <div class="tweet-actions">
-                  <a data-confirm="You sure?" title="My fourth tweet!" rel="nofollow" data-method="delete" href="/tweets/4">delete</a>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="tweet clearfix" id="3">
-            <a href="/users/nazar"><img alt="Nazar Taran" class="gravatar" src="https://secure.gravatar.com/avatar/307a99b1eff78a2ca24d7c4097712f75?s=50"></a>
-            <div class="content">
-              <div class="user">
-                <a href="/users/nazar">Nazar Taran</a>
-              </div>
-              <div class="tweet-content">My third tweet!</div>
-              <div class="tweet-footer">
-                <posted>less than a minute ago.</posted>
-                <div class="tweet-actions">
-                  <a data-confirm="You sure?" title="My third tweet!" rel="nofollow" data-method="delete" href="/tweets/3">delete</a>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="tweet clearfix" id="2">
-            <a href="/users/nazar"><img alt="Nazar Taran" class="gravatar" src="https://secure.gravatar.com/avatar/307a99b1eff78a2ca24d7c4097712f75?s=50"></a>
-            <div class="content">
-              <div class="user">
-                <a href="/users/nazar">Nazar Taran</a>
-              </div>
-              <div class="tweet-content">My second tweet!</div>
-              <div class="tweet-footer">
-                <posted>less than a minute ago.</posted>
-                <div class="tweet-actions">
-                  <a data-confirm="You sure?" title="My second tweet!" rel="nofollow" data-method="delete" href="/tweets/2">delete</a>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="tweet clearfix" id="1">
-            <a href="/users/nazar"><img alt="Nazar Taran" class="gravatar" src="https://secure.gravatar.com/avatar/307a99b1eff78a2ca24d7c4097712f75?s=50"></a>
-            <div class="content">
-              <div class="user">
-                <a href="/users/nazar">Nazar Taran</a>
-              </div>
-              <div class="tweet-content">My first tweet!</div>
-              <div class="tweet-footer">
-                <posted>less than a minute ago.</posted>
-                <div class="tweet-actions">
-                  <a data-confirm="You sure?" title="My first tweet!" rel="nofollow" data-method="delete" href="/tweets/1">delete</a>
-                </div>
-              </div>
-            </div>
-          </li>
-        </ol>
-        <hr>
-      </div>
-    </div>
   </div>
 </div>
