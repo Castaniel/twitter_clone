@@ -1,23 +1,33 @@
-<h2 class="title">Tweets</h2>
-  <ol class="tweets">
-    <li class="tweet clearfix" id="5">
-      <a href="/users/nazar"><img alt="Nazar Taran" class="gravatar" src="https://secure.gravatar.com/avatar/307a99b1eff78a2ca24d7c4097712f75?s=50"></a>
-      <div class="content">
-        <div class="user">
-          <% current_user.tweets.each do |t| %>
-          <p>
-            <%= link_to "#{current_user.first_name} #{current_user.last_name}", current_user %>
-          </p>
-          <div class="tweet-content"><%= t.text %></div>
-          <div class="tweet-footer">
-            <posted>Posted:<%= time_ago_in_words(t.created_at) %> ago</posted>
-            <div class="tweet-actions">
-              <%= link_to "Delete", tweet_path(id: t.id), method: :delete,
-                                       data: { confirm: "You sure?" } %>
-            </div>
-          </div>
-        <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <% current_user.tweets.each do |t| %>
+        <div class="timeline">
+          <h2 class="title">Tweets</h2>
+          <ol class="tweets">
+            <li class="tweet clearfix" id="5">
+              <%= image_tag(current_user.avatar.url, alt: 'Avatar', width: '100', heigth: '100', class: 'img-circle') if current_user.avatar? %>
+              <div class="inline-block">
+              <div class="content">
+                <div class="user">
+                  <%= link_to "#{current_user.first_name} #{current_user.last_name}", current_user %>
+                </div>
+                <div class="tweet-content"><%= t.text %></div>
+                <div class="tweet-footer">
+                  <posted><%= time_ago_in_words(t.created_at) %> ago.</posted>
+                </div>
+                  <div class="tweet-actions">
+                    <%= link_to "Delete", tweet_path(id: t.id), method: :delete,
+                                      data: { confirm: "You sure?" } %>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ol>
+          <hr>
         </div>
-      </div>
-    </li>
-  </ol>
+      <% end %>
+    </div>
+  </div>
+</div>
+    

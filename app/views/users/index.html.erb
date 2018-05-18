@@ -1,6 +1,7 @@
 <!--% provide(:title, 'All users') %-->
 <div class="container">
   <% @users.each do |user| %>
+    <div class="inline-block"><%= image_tag(user.avatar.url, alt: 'Avatar', width: '100', heigth: '100', class: 'img-circle') if user.avatar? %></div>
     <p>
       <strong>User:</strong>
       <%= link_to "#{user.first_name} #{user.last_name}", user %>

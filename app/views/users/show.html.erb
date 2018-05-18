@@ -1,13 +1,14 @@
+<%= image_tag(@user.avatar.url, alt: 'Avatar', width: '100', heigth: '100', class: 'img-circle') if @user.avatar? %>
 <p>
   <strong>User:</strong>
   <%= @user.first_name %>
   <%= @user.last_name %>
 </p>
-
 <p>
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
+<!--%= link_to 'Edit', edit_user_path(@user) %-->
 <div class="col-md-8">
   <% if @user.tweets.any? %>
     <h3>Tweets (<%= @user.tweets.count %>)</h3>
@@ -18,4 +19,3 @@
   <% end %>
 </div>
 
-<%= link_to 'Edit', edit_user_path(@user) %>

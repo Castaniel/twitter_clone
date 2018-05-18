@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :tweets
   root 'home#index'
+  get 'home/ex'
 end
