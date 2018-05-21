@@ -9,7 +9,7 @@
               <span class="user"><%= current_user.email %></span>
           </div>
         </div>
-        <div class="stats">
+        <div class="stats">      
           <table>
             <tbody>
               <tr>
@@ -17,14 +17,13 @@
                 <th>Followings</th>
                 <th>Followers</th>
               </tr>
-                <td><%= link_to current_user.tweets.length, tweets_path %></td>
-                <td><a href="/users/nazar/following">0</a></td>
-                <td><a href="/users/nazar/followers">0</a></td>
-              </tr>
+              <td><%= link_to current_user.tweets.count, tweets_path %></td>
+              <td><%= link_to current_user.following.count, following_user_path(current_user) %></td>
+              <td><%= link_to current_user.followers.count, followers_user_path(current_user) %></td>
             </tbody>
-          </table>
+          </table>    
         </div>
-        <div class="container">
+        <div class="card">
           <%= render 'tweets/tweet_form' %>
           <%= render 'tweets/tweet' %>
         </div>

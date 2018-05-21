@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-  get 'tweets/new'
-
-  get 'tweets/create'
-
-  get 'tweets/update'
-
   get 'sessions/new'
   get 'sessions/create'
   get 'sessions/destroy'
@@ -12,9 +6,15 @@ Rails.application.routes.draw do
   delete 'log_out' => 'sessions#destroy'
   get 'sign_up' => 'users#new'
 
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   resources :sessions, only: [:new, :create, :destroy]
   resources :tweets
+  resources :relationships, only: [:create, :destroy]
+  
   root 'home#index'
   get 'home/ex'
 end

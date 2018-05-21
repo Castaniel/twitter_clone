@@ -3,11 +3,16 @@ class TweetsController < ApplicationController
   
   
   def index
-    @tweets = Tweet.all
+    #@tweets = Tweet.all
+    @tweets = Tweet.order("id").page(params[:page]).per_page(5)
   end
   
   def new
     @tweet = Tweet.new
+  end
+  
+  def show
+    @tweet = Tweet.find(params[:id])
   end
 
   def create
