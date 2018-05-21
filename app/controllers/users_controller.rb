@@ -57,4 +57,10 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :avatar)
   end
+  
+  def correct_user
+      @user = User.find(params[:id])
+      flash[:success] = "Wrong user"
+      redirect_to(root_url) unless current_user?(@user)
+  end
 end

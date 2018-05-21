@@ -17,8 +17,10 @@
                   <posted><%= time_ago_in_words(tweet.created_at) %> ago.</posted>
                 </div>
                   <div class="tweet-actions">
+                    <% if current_user?(tweet.user) %>
                     <%= link_to "Delete", tweet_path(id: tweet.id), method: :delete,
                                       data: { confirm: "You sure?" } %>
+                    <% end %>
                   </div>
                 </div>
               </div>
