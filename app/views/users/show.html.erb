@@ -12,28 +12,27 @@
 <div class="col-md-8">
   <%= render 'follow_form' %>
   <%= render 'stats' %>
-    <h3>Tweets (<%= @user.tweets.count %>)</h3>
-    <ol class="tweets">
-      <li class="tweet clearfix" id="5">
-        <% @user.tweets.each do |tweet| %>
-        <%= image_tag(@user.avatar.url, alt: 'Avatar', width: '100', heigth: '100', class: 'img-circle') if @user.avatar? %>
-        <div class="inline-block">
-          <div class="content">
-            <div class="user">
-              <%= link_to "#{tweet.user.first_name} #{tweet.user.last_name}", tweet.user %>
-            </div>
-            <div class="tweet-content"><%= tweet.text %></div>
-            <div class="tweet-footer">
-              <posted><%= time_ago_in_words(tweet.created_at) %> ago.</posted>
-            </div>
-            <div class="tweet-actions">
-              <%= link_to "Delete", tweet_path(id: tweet.id), method: :delete,
+  <h3>Tweets (<%= @user.tweets.count %>)</h3>
+  <ol class="tweets">
+    <li class="tweet clearfix" id="5">
+      <% @user.tweets.each do |tweet| %>
+      <%= image_tag(@user.avatar.url, alt: 'Avatar', width: '100', heigth: '100', class: 'img-circle') if @user.avatar? %>
+      <div class="inline-block">
+        <div class="content">
+          <div class="user">
+            <%= link_to "#{tweet.user.first_name} #{tweet.user.last_name}", tweet.user %>
+          </div>
+          <div class="tweet-content"><%= tweet.text %></div>
+          <div class="tweet-footer">
+            <posted><%= time_ago_in_words(tweet.created_at) %> ago.</posted>
+          </div>
+          <div class="tweet-actions">
+            <%= link_to "Delete", tweet_path(id: tweet.id), method: :delete,
                                       data: { confirm: "You sure?" } %>
-            </div>
           </div>
         </div>
-        <% end %>
-      </li>
-    </ol>
+      </div>
+      <% end %>
+    </li>
+  </ol>
 </div>
-    <!--%= will_paginate @microposts %-->

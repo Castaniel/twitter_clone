@@ -1,13 +1,13 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8">
-        <div class="timeline">
-          <h2 class="title">Tweets</h2>
-          <ol class="tweets">
-            <li class="tweet clearfix" id="5">
-              <% current_user.tweets.each do |tweet| %>
-              <%= image_tag(current_user.avatar.url, alt: 'Avatar', width: '100', heigth: '100', class: 'img-circle') if current_user.avatar? %>
-              <div class="inline-block">
+      <div class="timeline">
+        <h2 class="title">Tweets</h2>
+        <ol class="tweets">
+          <li class="tweet clearfix" id="5">
+            <% current_user.tweets.each do |tweet| %>
+            <%= image_tag(current_user.avatar.url, alt: 'Avatar', width: '100', heigth: '100', class: 'img-circle') if current_user.avatar? %>
+            <div class="inline-block">
               <div class="content">
                 <div class="user">
                   <%= link_to "#{tweet.user.first_name} #{tweet.user.last_name}", tweet.user %>
@@ -16,20 +16,19 @@
                 <div class="tweet-footer">
                   <posted><%= time_ago_in_words(tweet.created_at) %> ago.</posted>
                 </div>
-                  <div class="tweet-actions">
-                    <% if current_user?(tweet.user) %>
-                    <%= link_to "Delete", tweet_path(id: tweet.id), method: :delete,
+                <div class="tweet-actions">
+                  <% if current_user?(tweet.user) %>
+                  <%= link_to "Delete", tweet_path(id: tweet.id), method: :delete,
                                       data: { confirm: "You sure?" } %>
-                    <% end %>
-                  </div>
+                  <% end %>
                 </div>
               </div>
-            </li>
-          </ol>
-          <hr>
-        </div>
+            </div>
+          </li>
+        </ol>
+        <hr>
+      </div>
       <% end %>
     </div>
   </div>
 </div>
-    

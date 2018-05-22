@@ -3,6 +3,7 @@ class HomeController < ApplicationController
     @tweet = Tweet.new
     @user = User.new
   end
+  
   def show
     @user = User.find(params[:id])
     @tweet = Tweet.find(params[:id])

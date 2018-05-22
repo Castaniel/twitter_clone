@@ -1,7 +1,6 @@
 class TweetsController < ApplicationController
   before_action :correct_user, only: :destroy
   
-  
   def index
     #@tweets = Tweet.all
     @tweets = Tweet.order("id").page(params[:page]).per_page(5)
@@ -27,7 +26,7 @@ class TweetsController < ApplicationController
   def destroy
     @tweet = Tweet.find(params[:id])
     @tweet.destroy
-    flash[:success] = "Micropost deleted"
+    #flash[:success] = "Micropost deleted"
     redirect_to root_path
   end
   
