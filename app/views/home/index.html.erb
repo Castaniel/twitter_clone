@@ -25,7 +25,20 @@
         </div>
         <div class="card">
           <%= render 'tweets/tweet_form' %>
-          <%= render 'tweets/tweet' %>
+          <div class="tweet-content">
+            <% current_user.following.each do |user| %>
+              <% user.tweets.each do |tweet| %>
+                <div class="d-inline-block bg-warning">
+                  <%= image_tag(user.avatar.url, alt: 'Avatar', width: '100', heigth: '100', class: 'img-circle') if user.avatar? %>
+                </div>
+                <div class="d-inline-block bg-warning">
+                  <strong><%= link_to "#{user.first_name} #{user.last_name}", user %></strong>
+                  Post: <%= tweet.text %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <!--%= render 'tweets/tweet' %-->
         </div>
       </section>
     </aside>

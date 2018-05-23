@@ -1,11 +1,9 @@
 <h1>Tweets</h1>
-<% @tweets.each do |tweet| %>
-  <div class="d-inline-block bg-warning">
-    <%= image_tag(tweet.user.avatar.url, alt: 'Avatar', width: '100', heigth: '100', class: 'img-circle') if tweet.user.avatar? %>
-  </div>
-  <div class="d-inline-block bg-warning">
-    <strong><%= "#{tweet.user.first_name} #{tweet.user.last_name}" %></strong></br>
-    Post: <%= tweet.text %>
-  </div>
-<% end %>
+<div class="tweet-content">
+  <% @tweets.each do |tweet| %>
+  <%= image_tag(tweet.user.avatar.url, alt: 'Avatar', width: '100', heigth: '100', class: 'img-circle') if tweet.user.avatar? %>
+    <%= tweet.user.first_name %>
+    <%= tweet.text %>
+  <% end %>
+</div>
 <%= will_paginate @tweets, previous_label: h("<"), next_label: h(">") %>
