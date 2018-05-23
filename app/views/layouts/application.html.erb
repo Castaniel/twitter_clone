@@ -17,6 +17,12 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right header-menu">
+            <li class="fa fa-users">
+              <%= form_tag(users_path, method: :get) do %>
+                <%= text_field_tag :search, params[:search] %>
+                <%= submit_tag 'Search', name: nil %>
+              <% end %>
+            </li>
             <li><%= link_to 'Users', users_path, class: 'fa fa-users' %></li>
             <li><%= link_to 'Profile', current_user, class: 'fa fa-user' %></li>
             <li><%= link_to 'All tweets', tweets_path, class: 'fa fa-comment' %></li>

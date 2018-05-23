@@ -33,4 +33,19 @@ class User < ApplicationRecord
   def following?(other_user)
     following.include?(other_user)
   end
+  
+  # def feed
+  #   following_ids = "SELECT followed_id FROM relationships
+  #                   WHERE  follower_id = :user_id"
+  #   Tweets.where("user_id IN (#{following_ids})
+  #                   OR user_id = :user_id", user_id: id)
+  # end
+  
+  def self.search(search)
+    if search
+      where("LOWER(first_name) LIKE ? or LOWER(last_name) LIKE ?", "%#{search}%", "%#{search}%")
+    else
+      all
+    end
+  end
 end

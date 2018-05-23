@@ -2,8 +2,8 @@ class UsersController < ApplicationController
   skip_before_action :authenticate_user, only: [:new, :create]
   
   def index
-    #@users = User.all
-    @users = User.order("first_name").page(params[:page]).per_page(5)
+    @users = User.search(params[:search]).page(params[:page]).per_page(5)
+    #@users = User.order("first_name").page(params[:page]).per_page(5)
   end
   
   def new
@@ -53,7 +53,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :avatar)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :avatar, :search)
   end
   
   def correct_user
