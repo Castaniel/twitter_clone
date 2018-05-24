@@ -6,7 +6,7 @@
       <h1><%= "#{@user.first_name} #{@user.last_name}" %></h1>
     </section>
     <section class="stats">
-      <%= render 'users/stats' %>
+      <%= render 'shared/stats' %>
       <% if @users.any? %>
         <div class="user_avatars">
           <% @users.each do |user| %>

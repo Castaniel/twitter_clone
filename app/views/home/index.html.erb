@@ -34,11 +34,13 @@
                 <div class="d-inline-block bg-warning">
                   <strong><%= link_to "#{user.first_name} #{user.last_name}", user %></strong>
                   Post: <%= tweet.text %>
+                  <div class="tweet-footer">
+                    <posted><%= time_ago_in_words(tweet.created_at) %> ago.</posted>
+                  </div>
                 </div>
               <% end %>
             <% end %>
           </div>
-          <!--%= render 'tweets/tweet' %-->
         </div>
       </section>
     </aside>

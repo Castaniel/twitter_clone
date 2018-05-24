@@ -27,7 +27,7 @@ class TweetsController < ApplicationController
   def destroy
     @tweet = Tweet.find(params[:id])
     @tweet.destroy
-    #flash[:success] = "Micropost deleted"
+    #flash[:success] = "Tweet deleted"
     redirect_to root_path
   end
   
