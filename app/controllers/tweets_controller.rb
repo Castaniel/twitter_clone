@@ -2,7 +2,6 @@ class TweetsController < ApplicationController
   before_action :correct_user, only: :destroy
   
   def index
-    #@tweets = Tweet.all
     followings_with_self = current_user.following.pluck(:id) << current_user.id
     @tweets = Tweet.where(user_id: followings_with_self).order("id").page(params[:page]).per_page(5)
   end
